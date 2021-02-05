@@ -231,25 +231,22 @@ class CustHelp(HelpCommand):
         cogs = list(set(cogs))
         self.add_indented_commands(cogs)
 
-        self.paginator.help_description = "Below you can see all available categories you have access to\n"
-        "Check out https://mamubots.net/ for our dashboard."
+        self.paginator.help_description = "Below you can see all available categories you have access to."
 
         await self.send_pages(bot)
 
     async def send_command_help(self, command):
-        help_description = f"`{self.clean_prefix}{command.qualified_name}`\n\nCheck out https://mamubots.net/ for our dashboard."
+        help_description = f"`{self.clean_prefix}{command.qualified_name}`"
         self.paginator.help_description = help_description
         self.paginator.add_command(command)
         await self.send_pages(None, True)
 
     async def send_cog_help(self, cog):
         if cog.description:
-            help_description = f"{cog.description}\n\nCheck out https://mamubots.net/ for our dashboard.\n\n" \
-                               f"Available commands:"
+            help_description = f"Available commands:"
             self.paginator.help_description = help_description
         else:
-            self.paginator.help_description = "Check out https://mamubots.net/ for our dashboard.\n\n" \
-                                              f"Available commands:"
+            self.paginator.help_description = f"Available commands:"
 
         filtered = await self.filter_commands(cog.get_commands(), sort=self.sort_commands)
         self.add_indented_commands(filtered)
