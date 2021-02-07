@@ -5,7 +5,7 @@ from discord_handler.base.cog_interface import ICog, AuthorState
 
 class Setup(ICog):
     """
-    Setup commands. Use this first when you add Intro Bot to your server.
+    Setup commands. Use this first when you add the bot to your server.
     """
 
     def __init__(self, bot: Bot):
