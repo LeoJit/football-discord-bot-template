@@ -7,8 +7,8 @@ from discord.errors import Forbidden
 
 from discord_handler.helper import add_guild, get_user, send_pm
 
-from db import models
-from db.models import DBGuild, DBUser, Error
+from prediction_db import models
+from prediction_db.models import DBGuild, DBUser, Error
 import traceback
 from typing import Union, TYPE_CHECKING
 

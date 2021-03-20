@@ -4,7 +4,7 @@ import re
 from typing import Union, Tuple
 import os
 
-from db.models import DBUser
+from prediction_db.models import DBUser
 from discord_handler.base.cog_interface import ICog, AuthorState
 from discord_handler.helper import get_user
 

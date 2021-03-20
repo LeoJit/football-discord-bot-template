@@ -11,7 +11,7 @@ from texttable import Texttable
 from aiohttp.web import Request
 import logging
 
-from db.models import Error, GuildStats
+from prediction_db.models import Error, GuildStats
 from discord_handler.base.cog_interface import AuthorState, ICog
 from discord_handler.helper import send_table, get_guild, get_user, send_pm
 

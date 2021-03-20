@@ -2,6 +2,7 @@ import inspect
 import sys
 
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.utils import timezone
 
@@ -70,6 +71,8 @@ class DBUser(models.Model):
     g = models.ForeignKey(DBGuild, verbose_name="Associated server", on_delete=models.CASCADE)
     avatar_url = models.URLField(verbose_name="Avatar url of the account", default=None, null=True)
     is_bot = models.BooleanField(default=False)
+    g_admin = models.BooleanField(verbose_name="Admin flag, set by Admin", default=False)
+    g_mod = models.BooleanField(verbose_name="Mod flag, set by Admin", default=False)
 
     class Meta:
         unique_together = (('u_id', 'g'))
@@ -197,3 +200,24 @@ class Error(models.Model):
 
     def __str__(self):
         return self.__repr__()
+
+class Questions(models.Model):
+    name= models.CharField(max_length=2048, verbose_name="Name of the competition")
+    questions= JSONField()
+    options= JSONField()
+
+    def __repr__(self):
+        return f"{self.name}"
+
+    def __str__(self):
+        return self.__repr__()
+
+class Predictions(models.Model):
+    uid = models.BigIntegerField(verbose_name="UserID")
+    name= models.CharField(max_length=2048, verbose_name="Name of the competition")
+    predictions= JSONField()
+
+    def __repr__(self):
+        return f"{self.name}"
+
+    

@@ -1,6 +1,7 @@
 import asyncio
 import os
 import traceback
+import asyncio
 from json import JSONDecodeError
 from typing import TYPE_CHECKING
 
@@ -11,7 +12,7 @@ from discord import RawReactionActionEvent, Guild, Member, TextChannel, Message,
 from discord.ext.commands import Bot, Cog, Context
 
 from discord_handler.cogs.cog_crawler import Crawler
-from db import models
+from prediction_db import models
 from discord_handler.base.cog_interface import ICog, AuthorState
 from discord_handler.helper import get_user, get_guild, get_channel, yes_no, CustCtx
 
@@ -130,6 +131,7 @@ class Listener(ICog):
                              traceback=traceback.format_exc())
             f.save()
             await self.notify_error_bot_owner(f, d_g)
+
 
 def setup(bot):
     bot.add_cog(Listener(bot))

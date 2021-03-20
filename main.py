@@ -21,7 +21,7 @@ from discord.ext.commands import Bot
 import json
 # local
 import os
-from db.models import Error
+from prediction_db.models import Error
 import sys
 import traceback
 
@@ -40,6 +40,8 @@ def main(args=None):
     parser = get_parser()
     args = parser.parse_args(args)
     intents = discord.Intents(messages=True, guilds=True)
+    intents.reactions = True
+    intents.members = True
     """
     #use these if necessary
     intents.reactions = True

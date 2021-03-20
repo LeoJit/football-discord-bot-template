@@ -19,7 +19,7 @@ if sys.platform == "darwin":
             'USER': f"{d['db_user']}",
             'PASSWORD': f"{d['db_pw']}",
             'HOST': 'localhost',
-            'PORT': '',
+            'PORT': '5432',
         }
     }
 else:
@@ -30,12 +30,12 @@ else:
             'USER': f"{d['db_user']}",
             'PASSWORD': f"{d['db_pw']}",
             'HOST': 'localhost',
-            'PORT': '',
+            'PORT': '5432',
         }
     }
 
 INSTALLED_APPS = (
-    'db',
+    'prediction_db',
 )
 
 SECRET_KEY = 'REPLACE_ME'

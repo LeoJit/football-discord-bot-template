@@ -7,7 +7,7 @@ from discord.ext.commands import Bot
 
 from discord_handler.base.cog_interface import ICog, AuthorState
 from discord_handler.helper import get_guild
-from db import models
+from prediction_db import models
 
 path = os.path.dirname(os.path.realpath(__file__)) + "/../../"
 

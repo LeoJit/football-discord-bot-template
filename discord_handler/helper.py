@@ -10,7 +10,7 @@ from discord.ext.commands import Context, Bot
 from django.db import IntegrityError
 from django.utils import timezone
 
-from db.models import DBGuild, DBUser, DBChannel, DBRole
+from prediction_db.models import DBGuild, DBUser, DBChannel, DBRole
 
 if TYPE_CHECKING:
     from discord_handler.cogs.cog_bot_owner import DBotOwner
